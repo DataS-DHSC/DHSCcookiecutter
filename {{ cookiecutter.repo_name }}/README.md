@@ -16,7 +16,7 @@ It's suggested that you install this pack and it's requirements within a virtual
 
 ## Installing the package (Python Only)
 
-Whilst in the root folder, in the command prompt, you can install the package and it's dependencies
+Whilst in the root folder, in the command prompt, you can install the package and its dependencies
 using:
 
 ```shell
@@ -61,7 +61,7 @@ secrets/credentials should have the following environment variable name(s):
 Once you've added, [load these environment variables using
 `.env`][docs-loading-environment-variables].
 
-## Licence
+## License
 
 Unless stated otherwise, the codebase is released under the MIT License. This covers
 both the codebase and any sample code in the documentation. The documentation is ©
