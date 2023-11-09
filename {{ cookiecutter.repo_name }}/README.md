@@ -61,6 +61,10 @@ secrets/credentials should have the following environment variable name(s):
 Once you've added, [load these environment variables using
 `.env`][docs-loading-environment-variables].
 
+## Code of Conduct
+
+Please note that the {{cookiecutter.repo_name}} project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+
 ## License
 
 Unless stated otherwise, the codebase is released under the MIT License. This covers
