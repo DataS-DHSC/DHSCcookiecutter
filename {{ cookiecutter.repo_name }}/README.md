@@ -61,6 +61,19 @@ secrets/credentials should have the following environment variable name(s):
 Once you've added, [load these environment variables using
 `.env`][docs-loading-environment-variables].
 
+## Virtual environments
+
+In programming we might work on several projects concurrently, each project depending on different packages of different versions. For example, our `project1` might require version `2.0.1` of `packageA`, and `project2` might require version `3.2.2` of that same `packageA`. If these versions are different enough, our `project1` and `project2` may not run with the wrong version of `packageA` installed. We use virtual environments so that all our projects can have separate, isolated environments with all their required dependencies inside, so working on one project does not disrupt our workflow in another.
+
+### Python
+
+* Documentation on virtual environments in Python is available [here](https://docs.python.org/3/tutorial/venv.html)
+* With the repository as the current directory in Anaconda Prompt, run `conda env create -f environment.yml`. This will create a virtual environment called `{{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env`.
+* [*Optional*] If an environment called `{{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env` already exists on your device, the above step will fail. Run `conda remove --name {{cookiecutter.project_name}}-env --all`, first ensuring you are ***NOT*** using the `{{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env` environment. Then reattempt the previous step.
+* To activate this virtual environment, run `conda`: `conda activate {{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env`.
+* When you are finished with this project, run: `conda deactivate`.
+
+
 ## Code of Conduct
 
 Please note that the {{cookiecutter.repo_name}} project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
