@@ -18,6 +18,20 @@ or, alternatively, run:
 sphinx-build -b linkcheck ./docs ./docs/_build
 ```
 
+In a Windows console, running the following from the project root directory will generate necessary files to create the docs (make sure you are running the console from the `{{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env` virtual envrionment):
+
+```shell
+sphinx-apidoc -o docs .
+```
+
+Then to generate the html docs themselves you can run:
+
+```shell
+cd docs
+./make.bat html
+```
+
+
 The HTML-version of this documentation can then be viewed at `docs/_build/index.html`,
 relative to the top-level of this repository.
 
