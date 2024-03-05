@@ -5,18 +5,23 @@ reStructuredText or Markdown files, with acceptable formatting for Sphinx. [Guid
 how to write Sphinx documentation is supplied in the contributor
 guide][writing-sphinx-documentation].
 
-To build the documentation, run the `docs` command [from `Makefile` using the `make`
-utility at the top-level of this repository][docs-makefile].
+To build the documentation:
+
+* In a Windows console (making sure you are running the console from the `{{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env` virtual envrionment), run the following from the *project root directory*. 
 
 ```shell
-make docs
+sphinx-apidoc -o docs .
 ```
 
-or, alternatively, run:
+This will generate necessary files to create the docs.
+
+* To generate the html docs themselves you can run:
 
 ```shell
-sphinx-build -b linkcheck ./docs ./docs/_build
+cd docs
+./make.bat html
 ```
+
 
 The HTML-version of this documentation can then be viewed at `docs/_build/index.html`,
 relative to the top-level of this repository.
