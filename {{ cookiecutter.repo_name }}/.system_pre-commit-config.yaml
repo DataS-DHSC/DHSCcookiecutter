@@ -1,0 +1,118 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+
+
+#altered to rung 
+repos:
+  - repo: local
+    hooks:
+      - id: nbstripout-conda
+        name: nbstripout-conda
+        entry: nbstripout
+        language: conda
+        types: [jupyter]
+        args: [ --extra-keys, "metadata.colab metadata.kernelspec cell.metadata.colab cell.metadata.executionInfo cell.metadata.id cell.metadata.outputId"]
+        require_serial: true
+
+      - id: isort
+        name: isort Sort python imports (auto-fixes)
+        entry: isort
+        require_serial: true
+        language: conda
+        types_or: [python]
+        args: [ "--profile", "black", "--filter-files" ]
+      
+      - id: isort
+        name: isort Sort cython imports (auto-fixes)
+        entry: isort
+        require_serial: true
+        language: conda
+        types_or: [cython]
+        args: [ "--profile", "black", "--filter-files" ]
+
+      - id: isort
+        name: isort Sort pyi imports (auto-fixes)
+        entry: isort
+        require_serial: true
+        language: conda
+        types_or: [pyi]
+        args: [ "--profile", "black", "--filter-files" ]
+
+      - id: black
+        name: black
+        description: "Black: The uncompromising Python code formatter"
+        entry: black
+        language: conda
+        minimum_pre_commit_version: 2.9.2
+        require_serial: true
+        types_or: [python, pyi]
+    
+      - id: flake8  # flake will fail and prevent commits sometiems - good but maybe too much?
+        name: flake8
+        description: '`flake8` is a command-line utility for enforcing style consistency across Python projects.'
+        entry: flake8
+        language: conda
+        types: [python]
+        require_serial: true
+      
+      - id: nbqa-black
+        name: nbqa-black
+        description: Run 'black' on a Jupyter Notebook
+        entry: nbqa black
+        language: conda
+        require_serial: true
+        types_or: [jupyter, markdown]
+        #additional_dependencies: ['.[black]']
+      - id: nbqa-isort
+        name: nbqa-isort
+        description: Run 'isort' on a Jupyter Notebook
+        entry: nbqa isort
+        language: conda
+        require_serial: true
+        types_or: [jupyter, markdown]
+          # additional_dependencies: [isort]
+      - id: detect-secrets
+        name: Detect secrets
+        description: Detects high entropy strings that are likely to be passwords.
+        entry: detect-secrets-hook
+        language: conda
+
+      - id: bandit
+        name: bandit
+        description: 'Bandit is a tool for finding common security issues in Python code'
+        entry: bandit
+        language: conda
+        types: [python]
+        require_serial: true
+
+
+  {% if cookiecutter.using_R == "Yes" %}
+  # R specific hooks: https://github.com/lorenzwalthert/precommit
+  - repo: https://github.com/lorenzwalthert/precommit
+    rev: v0.1.3
+    hooks:
+      - id: style-files
+        name: Style files using styler
+        language: system
+        args: [ --style_pkg=styler, --style_fun=tidyverse_style ]
+      - id: roxygenize
+        name: Run roxygen2::roxygenize()
+      # codemeta must be above use-tidy-description when both are used
+      # -   id: codemeta-description-updated
+      - id: use-tidy-description
+        name: Run sethis::use_tidy_description()
+        language: system
+      - id: lintr
+        name: Run lintr::lint()
+        language: system
+        exclude: renv/activate.R
+      - id: readme-rmd-rendered
+        name: Check README.Rmd has been rendered to README.md
+        language: system
+      - id: parsable-R
+        name: Check for valid R code using the parse() function
+        language: system
+      - id: no-browser-statement
+        name: Check for accidential browser() statements
+        language: system
+{% endif -%}
