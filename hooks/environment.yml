@@ -1,0 +1,8 @@
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - mypy=1.8.0
+  pip:
+  - nbstripout==0.7.1
+

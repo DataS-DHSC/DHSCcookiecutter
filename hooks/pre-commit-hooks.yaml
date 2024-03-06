@@ -1,0 +1,8 @@
+- id: nbstripout-conda
+  name: nbstripout-conda
+  description: 'This hook runs nbstripout.'
+  entry: nbstripout
+  language: conda
+  types: [python]
+  args: [ --extra-keys, "metadata.colab metadata.kernelspec cell.metadata.colab cell.metadata.executionInfo cell.metadata.id cell.metadata.outputId"]
+  require_serial: true
