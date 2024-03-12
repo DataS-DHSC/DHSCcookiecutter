@@ -74,6 +74,19 @@ In programming we might work on several projects concurrently, each project depe
 * When you are finished with this project, run: `conda deactivate`.
 
 
+## Documentation
+
+All functions contained in `.py` scripts in the `src` folder should have docstrings explaining what they do, what parameters are passed to the function, what errors the function can raise, and what the function outputs. The [`numpydoc` style](https://numpydoc.readthedocs.io/en/latest/example.html) of formatting docstrings is recommended. Scripts as a whole can contain their own docstrings, in much the same way as a function - simply contain a description of the module inside triple quotation marks `"""` at the top of the script. Examples of such documentation are contained in the `src` modules and submodules.
+
+Having documentation in this way is crucial to meet the minimum requirments of a Reproducible Analytical Pipeline.
+
+### Generating documentation
+
+Once docstrings for functions and modules are put together, we can quickly and easily generate documentation using the [`sphinx`](https://www.sphinx-doc.org/en/master/) package, which is contained in the `{{ cookiecutter.repo_name.lower().replace('_', '-').replace(' ', '-') }}-env` conda environment in `environment.yml`. This is quick and easy to do, producing documentation in HTML form in the style of [Read the Docs](https://about.readthedocs.com/?ref=readthedocs.com). This presents all modules and functions in an easy to navigate environment with all relevant information, including source code, readily available.
+
+Instructions for running `sphinx` are [here](docs/README.md).
+
+
 ## Code of Conduct
 
 Please note that the {{cookiecutter.repo_name}} project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
