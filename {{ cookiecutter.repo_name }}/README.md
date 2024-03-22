@@ -12,7 +12,7 @@ located.
 To start using this project, [first make sure your system meets its
 requirements](#requirements).
 
-It's suggested that you install this pack and it's requirements within a virtual environment.
+It's suggested that you install this pack and its requirements within a virtual environment.
 
 ## Installing the package (Python Only)
 
