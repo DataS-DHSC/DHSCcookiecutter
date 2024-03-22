@@ -133,14 +133,13 @@ Crown copyright and available under the terms of the Open Government 3.0 licence
 
 ## Contributing
 
-[If you want to help us build, and improve `govcookiecutter`, view our contributing
-guidelines](https://github.com/best-practice-and-impact/govcookiecutter/blob/main/CONTRIBUTING.md).
+[If you want to help us improve `DHSCcookiecutter`, view our contributing
+guidelines](https://github.com/DataS-DHSC/DHSCcookiecutter/blob/main/CONTRIBUTING.md).
 
 ## Acknowledgements
 
-[This template is based off the DrivenData Cookiecutter Data Science
-project][drivendata]. Specifically, it uses a similar `src` folder structure,
-and a modified version of the `help` commands in the `Makefile`s.
+[This project structure is based on the `govcookiecutter` template
+project][govcookiecutter].
 
 [aqua-book]: https://www.gov.uk/government/publications/the-aqua-book-guidance-on-producing-quality-analysis-for-government
 [blog-post]: https://dataingovernment.blog.gov.uk/2021/07/20/govcookiecutter-a-template-for-data-science-projects/
